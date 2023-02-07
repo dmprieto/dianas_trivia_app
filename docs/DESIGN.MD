@@ -1,6 +1,5 @@
-## Design
+## Data Analysis
 
-### Data
 After analyzing the following REST Endpoint from Open Trivia API
 - https://opentdb.com/api_category.php
 - https://opentdb.com/api_count.php?category=CATEGORY_ID_HERE
