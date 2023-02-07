@@ -10,5 +10,5 @@ After analizing the available data, I'll start with the design of the applicatio
 ### Setup
 I'll be using expo to generate the main project
 
-
+### Design
 [Design](/docs/DESIGN.MD "Design")
