@@ -1,0 +1,74 @@
+{
+	"response_code": 0,
+	"results": [{
+		"category": "General Knowledge",
+		"type": "multiple",
+		"difficulty": "easy",
+		"question": "In past times, what would a gentleman keep in his fob pocket?",
+		"correct_answer": "Watch",
+		"incorrect_answers": ["Money", "Keys", "Notebook"]
+	}, {
+		"category": "General Knowledge",
+		"type": "multiple",
+		"difficulty": "medium",
+		"question": "Which of these is the name of a Japanese system of alternative medicine, literally meaning &quot;finger pressure&quot;?",
+		"correct_answer": "Shiatsu",
+		"incorrect_answers": ["Ukiyo", "Majime", "Ikigai"]
+	}, {
+		"category": "General Knowledge",
+		"type": "boolean",
+		"difficulty": "medium",
+		"question": "The average woman is 5 inches \/ 13 centimeters shorter than the average man.",
+		"correct_answer": "True",
+		"incorrect_answers": ["False"]
+	}, {
+		"category": "General Knowledge",
+		"type": "multiple",
+		"difficulty": "hard",
+		"question": "According to the 2014-2015 Australian Bureau of Statistics, what percentage of Australians were born overseas?",
+		"correct_answer": "28%",
+		"incorrect_answers": ["13%", "20%", "7%"]
+	}, {
+		"category": "General Knowledge",
+		"type": "multiple",
+		"difficulty": "medium",
+		"question": "Which slogan did the fast food company, McDonald&#039;s, use before their &quot;I&#039;m Lovin&#039; It&quot; slogan?",
+		"correct_answer": "We Love to See You Smile",
+		"incorrect_answers": ["Why Pay More!?", "Have It Your Way", "Making People Happy Through Food"]
+	}, {
+		"category": "General Knowledge",
+		"type": "multiple",
+		"difficulty": "medium",
+		"question": "What is real haggis made of?",
+		"correct_answer": "Sheep&#039;s Heart, Liver and Lungs",
+		"incorrect_answers": ["Sheep&#039;s Heart, Kidneys and Lungs", "Sheep&#039;s Liver, Kidneys and Eyes", "Whole Sheep"]
+	}, {
+		"category": "General Knowledge",
+		"type": "multiple",
+		"difficulty": "easy",
+		"question": "The likeness of which president is featured on the rare $2 bill of USA currency?",
+		"correct_answer": "Thomas Jefferson",
+		"incorrect_answers": ["Martin Van Buren", "Ulysses Grant", "John Quincy Adams"]
+	}, {
+		"category": "General Knowledge",
+		"type": "multiple",
+		"difficulty": "easy",
+		"question": "The Flag of the European Union has how many stars on it?",
+		"correct_answer": "12",
+		"incorrect_answers": ["10", "14", "16"]
+	}, {
+		"category": "General Knowledge",
+		"type": "multiple",
+		"difficulty": "medium",
+		"question": "Linus Pauling, one of the only winners of multiple Nobel Prizes, earned his Nobel Prizes in Chemistry and what?",
+		"correct_answer": "Peace",
+		"incorrect_answers": ["Physics", "Economics", "Physiology\/Medicine"]
+	}, {
+		"category": "General Knowledge",
+		"type": "multiple",
+		"difficulty": "easy",
+		"question": "The drug cartel run by Pablo Escobar originated in which South American city?",
+		"correct_answer": "Medell&iacute;n",
+		"incorrect_answers": ["Bogot&aacute;", "Quito", "Cali"]
+	}]
+}
