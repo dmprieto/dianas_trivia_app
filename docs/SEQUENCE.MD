@@ -1,3 +1,5 @@
 ### Flows and Sequence Diagrams
 
-![homeseq](/assets/home_flow.png "Home Sequence")
+Get Categories Sequence
+
+![homeseq](/assets/home_flow.png "Categories Sequence")
