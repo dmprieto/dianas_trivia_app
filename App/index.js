@@ -1,6 +1,6 @@
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createStackNavigator } from "@react-navigation/stack";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import AboutScreen from "./screens/About";
 import CategoriesScreen from "./screens/Categories";
@@ -8,8 +8,9 @@ import HomeScreen from "./screens/Home";
 import QuizScreen from "./screens/Quiz";
 import SettingsScreen from "./screens/Settings";
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
+//const QuizModal = createStackNavigator();
 
 function GameTabs() {
   return (
@@ -18,7 +19,7 @@ function GameTabs() {
       goBack="none"
       activeColor="#5001B6"
       inactiveColor="#3e2465"
-      barStyle={{ backgroundColor: "#B204B7", paddingBottom: 5 }}
+      barStyle={{ backgroundColor: "#a21caf", paddingBottom: 5 }}
     >
       <Tab.Screen
         name="Categories"
@@ -69,7 +70,13 @@ function App() {
             headerShown: false,
           }}
         />
-        <Stack.Screen name="Quiz" component={QuizScreen} />
+        <Stack.Screen
+          name="Quiz"
+          component={QuizScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
         <Stack.Screen
           name="Game"
           options={{
