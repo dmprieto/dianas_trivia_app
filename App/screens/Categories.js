@@ -11,7 +11,7 @@ export default ({ navigation }) => {
       className="flex-1 items-center justify-center"
       source={require(bgImage)}
     >
-      <View className="flex-1 items-center justify-center absolute inset-1 backdrop-blur bg-black/50">
+      <View className="flex-1 items-center justify-center absolute inset-1 backdrop-blur bg-black/40">
         <FlatList
           data={categories.trivia_categories}
           renderItem={({ item }) => {
@@ -19,7 +19,7 @@ export default ({ navigation }) => {
               <CategoryCard
                 title={item.name}
                 onPress={() => {
-                  navigation.navigate("Game", { screen: "Quiz" });
+                  navigation.navigate("Quiz");
                 }}
               />
             );

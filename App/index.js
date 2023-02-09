@@ -6,6 +6,7 @@ import AboutScreen from "./screens/About";
 import CategoriesScreen from "./screens/Categories";
 import HomeScreen from "./screens/Home";
 import QuizScreen from "./screens/Quiz";
+import SettingsScreen from "./screens/Settings";
 
 const Stack = createNativeStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
@@ -14,6 +15,7 @@ function GameTabs() {
   return (
     <Tab.Navigator
       initialRouteName="Categories"
+      goBack="none"
       activeColor="#5001B6"
       inactiveColor="#3e2465"
       barStyle={{ backgroundColor: "#B204B7", paddingBottom: 5 }}
@@ -29,12 +31,13 @@ function GameTabs() {
         }}
       />
       <Tab.Screen
-        name="Quiz"
-        component={QuizScreen}
+        name="Settings"
+        component={SettingsScreen}
         options={{
           headerShown: false,
-          title: "",
-          tabBarButton: () => null,
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="cog" color={color} size={26} />
+          ),
         }}
       />
       <Tab.Screen
@@ -66,6 +69,7 @@ function App() {
             headerShown: false,
           }}
         />
+        <Stack.Screen name="Quiz" component={QuizScreen} />
         <Stack.Screen
           name="Game"
           options={{
