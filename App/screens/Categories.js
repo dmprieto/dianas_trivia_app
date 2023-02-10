@@ -1,12 +1,12 @@
-import { FlatList, ImageBackground } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { CategoryCard } from "../components/CategoryCard";
-import categories from "../sample_data/categories.json";
+import { FlatList, ImageBackground } from "react-native"
+import { SafeAreaView } from "react-native-safe-area-context"
+import { CategoryCard } from "../components/CategoryCard"
+import categories from "../sample_data/categories.json"
 
-const bgImage = "../assets/background/init.jpg";
+const bgImage = "../assets/background/init.jpg"
 
 export default ({ navigation }) => {
-  categories.trivia_categories.sort((a, b) => (a.name > b.name ? 1 : -1));
+  categories.trivia_categories.sort((a, b) => (a.name > b.name ? 1 : -1))
   return (
     <ImageBackground
       className="flex-1 items-center justify-center"
@@ -21,16 +21,15 @@ export default ({ navigation }) => {
                 title={item.name}
                 onPress={() => {
                   navigation.push("Quiz", {
-                    category: item.name,
-                    test: "hi",
-                  });
+                    category: item.name
+                  })
                 }}
               />
-            );
+            )
           }}
           keyExtractor={(item) => item.id}
         />
       </SafeAreaView>
     </ImageBackground>
-  );
-};
+  )
+}

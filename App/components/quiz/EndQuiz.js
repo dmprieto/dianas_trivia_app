@@ -1,12 +1,23 @@
-import { Text, View } from "react-native";
-export const EndQuiz = ({ quizStatus }) => {
+import { FlatList, Text } from "react-native"
+import { SafeAreaView } from "react-native-safe-area-context"
+import { DetailedQuestion } from "./DetailedQuestion"
+
+export const EndQuiz = ({ questions, category, quizStatus, answers }) => {
   if (quizStatus && quizStatus === "ended") {
     return (
-      <View className="items-center justify-center">
-        <Text className="text-4xl text-fuchsia-200 font-bold text-center tracking-wide">{`${category} Quiz Results`}</Text>
-        <Text className="text-4xl text-white text-center">{`Number of Questions: ${questions.length}`}</Text>
-      </View>
-    );
+      <SafeAreaView className="flex-1 items-center justify-center">
+        <Text className="text-xl text-fuchsia-200 font-bold text-center tracking-wide">{`${category} Quiz Results`}</Text>
+        <Text className="text-lg text-white text-center">{`Number of Questions: ${questions.length}`}</Text>
+        <FlatList
+          data={answers}
+          renderItem={({ item }) => {
+            const question = questions[item.id]
+            return <DetailedQuestion question={question} answer={item} />
+          }}
+          keyExtractor={(item) => item.id}
+        />
+      </SafeAreaView>
+    )
   }
-  return null;
-};
+  return null
+}
