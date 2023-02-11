@@ -6,13 +6,12 @@ const getAnswerDetail = (question, answer) => {
   if (question.correct_answer === answer.answer) {
     result = `Correct! Answer: ${answer.answer}`
   } else {
-    result = `Incorrect, you selected: ${answer.answer} but the correct answer is:${question.correct_answer}`
+    result = `Incorrect, you selected: '${answer.answer}', but the correct answer is: '${question.correct_answer}'`
   }
   //Correct, and show answer
   return (
-    <View>
+    <View className="flex flex-row pt-2">
       <MaterialCommunityIcons
-        className="flex-none"
         size={30}
         color={
           question.correct_answer === answer.answer ? "#22c55e" : "#e11d48"
@@ -23,7 +22,9 @@ const getAnswerDetail = (question, answer) => {
             : "close-thick"
         }
       />
-      <Text className="text-xl font-bold text-white">{result}</Text>
+      <Text className="text-lg font-bold text-white flex-shrink w-50 pl-1">
+        {result}
+      </Text>
     </View>
   )
 }
@@ -31,13 +32,13 @@ const getAnswerDetail = (question, answer) => {
 export const DetailedQuestion = ({ question, answer }) => {
   return (
     <View
-      className="m-3 p-3 rounded-md opacity-90 bg-purple-900"
+      className="m-5 p-4 rounded-md opacity-90 bg-purple-900"
       key={answer.id}
     >
-      <Text className="text-lg font-semibold text-white">{`Question ${
+      <Text className="text-lg font-semibold text-white pb-1">{`Question ${
         answer.id + 1
       } `}</Text>
-      <Text className="text-xl font-bold text-sky-300 tracking-wide ">{`${question.question}?`}</Text>
+      <Text className="text-xl font-bold text-sky-300">{`${question.question}?`}</Text>
       {getAnswerDetail(question, answer)}
     </View>
   )

@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Text, TouchableOpacity, View } from "react-native"
+import { SafeAreaView } from "react-native-safe-area-context"
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 import mergeOptions from "../../util/MergeOptions"
 import { MultipleOptions } from "./MultipleOptions"
@@ -32,11 +33,9 @@ const getLeftArrowComponent = (
   return (
     <TouchableOpacity
       onPress={() => {
-        console.log("answers:" + JSON.stringify(answers))
         setAnswer(answers[currentQuestion.id - 1].answer)
         setNextStep(currentQuestion, setCurrentQuestion, questions, false)
       }}
-      className="flex-none"
       disabled={currentQuestion.id === 0}
     >
       <MaterialCommunityIcons
@@ -78,7 +77,6 @@ const getRightArrowComponent = (
         })
 
         if (currentAnswer !== undefined) {
-          console.log("ASDFASDF:" + JSON.stringify(currentAnswer))
           currentAnswer.answer = answer
           setAnswers([...answers])
         } else {
@@ -91,7 +89,6 @@ const getRightArrowComponent = (
           setNextStep(currentQuestion, setCurrentQuestion, questions, true)
         }
       }}
-      className="flex-none"
       disabled={answer === ""}
     >
       <MaterialCommunityIcons
@@ -115,13 +112,13 @@ export const Question = ({
   const [answer, setAnswer] = useState("")
   if (quizStatus && quizStatus === "started") {
     return (
-      <View className="flex-none p-10">
+      <SafeAreaView className="flex-1 py-5">
         <Text className="text-xl text-fuchsia-200 font-bold text-center">{`${currentQuestion.category} Quiz`}</Text>
         <Text className="text-2xl text-sky-300 text-center">{`Question ${
           currentQuestion.id + 1
         } Of ${questions.length}`}</Text>
-        <Text className="text-xl text-slate-50 font-bold text-center">{`${currentQuestion.question}?`}</Text>
-        <View className="flex flex-row">
+        <Text className="text-xl text-slate-50 font-bold text-center px-10 pt-5">{`${currentQuestion.question}?`}</Text>
+        <View className="flex-1 flex-row space-x-1">
           {getLeftArrowComponent(
             currentQuestion,
             setCurrentQuestion,
@@ -146,7 +143,7 @@ export const Question = ({
             setQuizStatus
           )}
         </View>
-      </View>
+      </SafeAreaView>
     )
   }
   return null
