@@ -1,13 +1,27 @@
+import LottieView from "lottie-react-native"
+import { useRef } from "react"
 import { FlatList, Text } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
 import { DetailedQuestion } from "./DetailedQuestion"
 
 export const EndQuiz = ({ questions, category, quizStatus, answers }) => {
   if (quizStatus && quizStatus === "ended") {
+    const animation = useRef(null)
     return (
       <SafeAreaView className="flex-1 items-center justify-center">
-        <Text className="text-2xl text-fuchsia-200 font-bold text-center tracking-wide pt-10">{`${category} Quiz Results`}</Text>
-        <Text className="text-xl text-white font-semibold text-center pb-3">{`Number of Questions: ${questions.length}`}</Text>
+        <Text className="text-lg text-fuchsia-200 font-bold text-center tracking-wide pt-10">{`${category} Quiz Results`}</Text>
+        <LottieView
+          autoPlay
+          loop={false}
+          ref={animation}
+          style={{
+            width: 200,
+            height: 200,
+            backgroundColor: "transparent"
+          }}
+          // Find more Lottie files at https://lottiefiles.com/featured
+          source={require("../../assets/game-complete.json")}
+        />
         <FlatList
           className="w-screen"
           data={answers}
