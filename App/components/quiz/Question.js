@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Text, TouchableOpacity, View } from "react-native"
+import base64 from "react-native-base64"
 import { SafeAreaView } from "react-native-safe-area-context"
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 import mergeOptions from "../../util/MergeOptions"
@@ -52,11 +53,19 @@ export const Question = ({
       currentQuestion.id === questions.length - 1 ? "#06b6d4" : "#d4d4d8"
     return (
       <SafeAreaView className="flex-1 py-5">
-        <Text className="text-xl text-fuchsia-200 font-bold text-center">{`${currentQuestion.category} Quiz`}</Text>
+        <Text className="text-xl text-fuchsia-200 font-bold text-center">{`${
+          currentQuestion.question !== undefined && currentQuestion.data !== ""
+            ? base64.decode(currentQuestion.category)
+            : ""
+        } Quiz`}</Text>
         <Text className="text-2xl text-sky-300 text-center">{`Question ${
           currentQuestion.id + 1
         } Of ${questions.length}`}</Text>
-        <Text className="text-xl text-slate-50 font-bold text-center px-10 pt-5">{`${currentQuestion.question}?`}</Text>
+        <Text className="text-xl text-slate-50 font-bold text-center px-10 pt-5">{`${
+          currentQuestion.question !== undefined && currentQuestion.data !== ""
+            ? base64.decode(currentQuestion.question)
+            : ""
+        }?`}</Text>
         <View className="flex-1 flex-row space-x-1">
           <TouchableOpacity
             onPress={() => {

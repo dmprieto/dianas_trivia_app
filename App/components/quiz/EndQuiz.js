@@ -6,7 +6,6 @@ import { DetailedQuestion } from "./DetailedQuestion"
 
 const calculateScore = (questions, answers) => {
   let tempScore = 0
-  console.log("started rfect")
   questions.forEach((question, index) => {
     const tempAnswer = answers[index].answer
     if (tempAnswer && question.correct_answer === tempAnswer) {
@@ -14,7 +13,6 @@ const calculateScore = (questions, answers) => {
     }
   })
 
-  console.log("finalscore:" + tempScore)
   return tempScore
 }
 
@@ -44,7 +42,6 @@ export const EndQuiz = ({ questions, category, quizStatus, answers }) => {
               height: 200,
               backgroundColor: "transparent"
             }}
-            // Find more Lottie files at https://lottiefiles.com/featured
             source={require("../../assets/game-complete.json")}
           />
           <Text className="text-lg text-fuchsia-200 font-bold text-center tracking-wide pt-10">{`Calculating Results ...`}</Text>
@@ -53,8 +50,8 @@ export const EndQuiz = ({ questions, category, quizStatus, answers }) => {
     }
     return (
       <SafeAreaView className="flex-1 items-center justify-center">
-        <Text className="text-2xl text-fuchsia-200 font-semibold text-center tracking-wide pt-10">{`${category} Quiz Results`}</Text>
-        <Text className="text-xl text-white font-bold text-center tracking-wide">{`Score: ${score}/10`}</Text>
+        <Text className="text-2xl text-fuchsia-200 font-semibold text-center pt-10">{`${category} Quiz Results`}</Text>
+        <Text className="text-3xl text-white font-bold text-center pb-5">{`Score: ${score}/10`}</Text>
 
         <FlatList
           className="w-screen"
