@@ -1,5 +1,5 @@
 import { Text, TouchableOpacity, View } from "react-native"
-import Animated, { PinwheelIn } from "react-native-reanimated"
+import Animated, { BounceIn } from "react-native-reanimated"
 import mergeOptions from "../../util/MergeOptions"
 
 export const StartQuiz = ({
@@ -15,7 +15,7 @@ export const StartQuiz = ({
   return (
     <View className="flex-1 items-center justify-center">
       <Animated.Text
-        entering={PinwheelIn}
+        entering={BounceIn}
         className="text-4xl text-fuchsia-200 font-bold text-center tracking-wide mb-5"
       >{`${category} Quiz`}</Animated.Text>
       <Text className="text-2xl font-bold  text-white text-center mb-10">{`Number of Questions: ${questions.length}`}</Text>
@@ -29,7 +29,7 @@ export const StartQuiz = ({
 
           setQuizStatus("started")
         }}
-        className="bg-purple-800 hover:bg-purple-500 py-2 px-4 rounded mt-4 opacity-90"
+        className="bg-purple-800 hover:bg-purple-500 py-2 px-4 rounded mt-3 opacity-90"
       >
         <Text className="text-xl text-white font-bold">Start</Text>
       </TouchableOpacity>
