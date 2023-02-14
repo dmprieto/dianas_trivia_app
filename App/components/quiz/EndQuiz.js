@@ -26,7 +26,7 @@ export const EndQuiz = ({ questions, category, quizStatus, answers }) => {
       setScore(calculateScore(questions, answers))
       const timer = setTimeout(() => {
         setShowResults(true)
-      }, 3000)
+      }, 4000)
       return () => clearTimeout(timer)
     }, [])
 
