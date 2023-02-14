@@ -33,7 +33,7 @@ export default ({ navigation }) => {
   if (isLoading) {
     return (
       <ImageBackground className="flex-1" source={require(bgImage)}>
-        <View className="flex-1 items-center justify-center absolute inset-1 backdrop-blur bg-black/50">
+        <View className="flex-1 items-center justify-center absolute inset-1 backdrop-blur bg-black/80">
           <Text className="text-3xl text-white m-10 text-center">{`Loading Categories ...`}</Text>
           <ActivityIndicator size="large" color="ffffff" />
         </View>
@@ -43,7 +43,7 @@ export default ({ navigation }) => {
   if (categories.length === 0) {
     return (
       <ImageBackground className="flex-1" source={require(bgImage)}>
-        <View className="flex-1 items-center justify-center absolute inset-1 backdrop-blur bg-black/70">
+        <View className="flex-1 items-center justify-center absolute inset-1 backdrop-blur bg-black/80">
           <Text className="text-3xl font-bold  text-white m-10">{`Could not retrieve the categories, please check that your internet connection is working and that opentdb.com is available`}</Text>
         </View>
       </ImageBackground>
@@ -54,7 +54,7 @@ export default ({ navigation }) => {
       className="flex-1 items-center justify-center"
       source={require(bgImage)}
     >
-      <SafeAreaView className="flex-1 items-center justify-center absolute inset-1 backdrop-blur bg-black/40">
+      <SafeAreaView className="flex-1 items-center justify-center absolute inset-1 backdrop-blur bg-black/80">
         <FlatList
           data={categories}
           renderItem={({ item }) => {

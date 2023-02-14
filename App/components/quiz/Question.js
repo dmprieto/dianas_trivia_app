@@ -52,8 +52,8 @@ export const Question = ({
     const color =
       currentQuestion.id === questions.length - 1 ? "#06b6d4" : "#ffffff"
     return (
-      <SafeAreaView className="flex-1 py-5">
-        <Text className="text-xl text-fuchsia-200 font-bold text-center px-3">{`${
+      <SafeAreaView className="flex-1 pt-5">
+        <Text className="text-2xl text-fuchsia-200 font-bold text-center px-10 max-w-prose">{`${
           currentQuestion.question !== undefined && currentQuestion.data !== ""
             ? base64.decode(currentQuestion.category)
             : ""
@@ -61,12 +61,12 @@ export const Question = ({
         <Text className="text-2xl text-sky-300 text-center">{`Question ${
           currentQuestion.id + 1
         } Of ${questions.length}`}</Text>
-        <Text className="text-xl text-slate-50 font-bold text-center px-10 pt-5">{`${
+        <Text className="text-xl text-slate-50 font-bold text-center px-6 pt-5">{`${
           currentQuestion.question !== undefined && currentQuestion.data !== ""
             ? base64.decode(currentQuestion.question)
             : ""
         }?`}</Text>
-        <View className="flex-1 flex-row space-x-1">
+        <View className="flex-1 flex-row">
           <TouchableOpacity
             onPress={() => {
               setAnswer(answers[currentQuestion.id - 1].answer)

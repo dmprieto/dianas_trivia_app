@@ -1,5 +1,5 @@
 import { Text, View } from "react-native"
-import Animated, { ZoomIn } from "react-native-reanimated"
+import Animated, { FadeIn } from "react-native-reanimated"
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 
 import base64 from "react-native-base64"
@@ -37,7 +37,7 @@ const getAnswerDetail = (question, answer) => {
 export const DetailedQuestion = ({ question, answer }) => {
   return (
     <Animated.View
-      entering={ZoomIn}
+      entering={FadeIn}
       className="mx-5 my-2 p-4 rounded-md opacity-90 bg-purple-900"
       key={answer.id}
     >
