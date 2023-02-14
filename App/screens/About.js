@@ -6,34 +6,34 @@ const bgImage = "../assets/background/init.jpg"
 
 const createAcknowledgments = () => {
   return (
-    <View className="flex-1 justify-center absolute inset-1 backdrop-blur bg-black/70 px-4">
+    <View className="flex-1 justify-center absolute inset-1 backdrop-blur bg-black/80 px-4">
       <Animated.Text
         entering={FadeIn}
         exiting={FadeOut}
         className="text-xl text-white font-bold pb-5"
       >
-        I want to thank:
+        Special thanks:
       </Animated.Text>
       <Animated.Text
         entering={FadeIn}
         exiting={FadeOut}
         className="text-xl text-fuchsia-200 font-bold pb-2 pl-3"
       >
-        - Natalia Swierz (https://lottiefiles.com/nswierz)
+        ⭐ Natalia Swierz (https://lottiefiles.com/nswierz)
       </Animated.Text>
       <Animated.Text
         entering={FadeIn}
         exiting={FadeOut}
         className="text-xl text-fuchsia-200 font-bold pb-3 pl-3"
       >
-        - Selva Kumar (https://lottiefiles.com/SelvaUX)
+        ⭐ Selva Kumar (https://lottiefiles.com/SelvaUX)
       </Animated.Text>
       <Animated.Text
         entering={FadeIn}
         exiting={FadeOut}
-        className="text-xl text-white font-bold"
+        className="text-xl text-white font-bold "
       >
-        for the free versions of the animated images
+        For the free versions of the animated images
       </Animated.Text>
     </View>
   )
@@ -41,18 +41,27 @@ const createAcknowledgments = () => {
 
 const createAbout = () => {
   return (
-    <View className="flex-1 justify-center absolute inset-1 backdrop-blur bg-black/70">
-      <Text className="text-xl text-fuchsia-200 font-bold pt-4 px-5">
-        The main purpose of the application is to create a project to showcase
-        my knowledge in React/React Hooks/Axios.
+    <View className="flex-1 justify-center absolute inset-1 backdrop-blur bg-black/80">
+      <Text className="text-xl font-bold text-white px-5 max-w-prose">
+        👾 This application demonstrates my knowledge in
       </Text>
-      <Text className="text-xl text-fuchsia-200 font-bold pt-6 px-5">
-        Also, it gave me the opportunity to learn on my own react
-        native/nativewind(tailwind)/react navigate/reanimate/lottie.
+      <Text className="text-xl font-bold text-fuchsia-200 px-5">
+        React/React Hooks/Axios
       </Text>
-      <Text className="text-xl text-fuchsia-200 font-bold pt-6 px-5">
-        The project was designed based on Open Trivia API (https://opentdb.com/)
-        and all the resources and libraries are open source
+      <Text className="text-xl font-bold text-white pt-5 px-4">
+        📚 It gave me the opportunity to learn on my own how to use
+      </Text>
+      <Text className="text-xl text-fuchsia-200 font-bold px-4">
+        React Native/Nativewind(Tailwind)/React Navigate/Reanimate/Lottie
+      </Text>
+      <Text className="text-xl font-bold text-white pt-5 px-4">
+        🔎 Data is retrieved from
+      </Text>
+      <Text className="text-xl text-fuchsia-200 font-bold px-4">
+        Open Trivia (opentdb.com)
+      </Text>
+      <Text className="text-xl font-bold text-white pt-5 px-4">
+        💜 All the resources and libraries are Open Source
       </Text>
     </View>
   )
@@ -66,7 +75,7 @@ export default ({ navigation }) => {
       setShowAkg(true)
       setTimeout(() => {
         setShowAkg(false)
-      }, 5000)
+      }, 4000)
     })
 
     // Return the function to unsubscribe from the event so it gets removed on unmount
