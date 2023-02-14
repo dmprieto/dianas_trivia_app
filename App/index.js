@@ -1,15 +1,15 @@
-import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import AboutScreen from "./screens/About";
-import CategoriesScreen from "./screens/Categories";
-import HomeScreen from "./screens/Home";
-import QuizScreen from "./screens/Quiz";
-import SettingsScreen from "./screens/Settings";
+import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs"
+import { NavigationContainer } from "@react-navigation/native"
+import { createStackNavigator } from "@react-navigation/stack"
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
+import AboutScreen from "./screens/About"
+import CategoriesScreen from "./screens/Categories"
+import HomeScreen from "./screens/Home"
+import QuizScreen from "./screens/Quiz"
+import SettingsScreen from "./screens/Settings"
 
-const Stack = createStackNavigator();
-const Tab = createMaterialBottomTabNavigator();
+const Stack = createStackNavigator()
+const Tab = createMaterialBottomTabNavigator()
 //const QuizModal = createStackNavigator();
 
 function GameTabs() {
@@ -28,7 +28,7 @@ function GameTabs() {
           headerShown: false,
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="book" color={color} size={26} />
-          ),
+          )
         }}
       />
       <Tab.Screen
@@ -38,7 +38,7 @@ function GameTabs() {
           headerShown: false,
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="cog" color={color} size={26} />
-          ),
+          )
         }}
       />
       <Tab.Screen
@@ -52,11 +52,11 @@ function GameTabs() {
               color={color}
               size={26}
             />
-          ),
+          )
         }}
       />
     </Tab.Navigator>
-  );
+  )
 }
 
 function App() {
@@ -67,26 +67,26 @@ function App() {
           name="Home"
           component={HomeScreen}
           options={{
-            headerShown: false,
+            headerShown: false
           }}
         />
         <Stack.Screen
           name="Quiz"
           component={QuizScreen}
           options={{
-            headerShown: false,
+            headerShown: false
           }}
         />
         <Stack.Screen
           name="Game"
           options={{
-            headerShown: false,
+            headerShown: false
           }}
           component={GameTabs}
         />
       </Stack.Navigator>
     </NavigationContainer>
-  );
+  )
 }
 
-export default App;
+export default App
