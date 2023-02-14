@@ -50,10 +50,10 @@ export const Question = ({
   }
   if (quizStatus && quizStatus === "started") {
     const color =
-      currentQuestion.id === questions.length - 1 ? "#06b6d4" : "#d4d4d8"
+      currentQuestion.id === questions.length - 1 ? "#06b6d4" : "#ffffff"
     return (
       <SafeAreaView className="flex-1 py-5">
-        <Text className="text-xl text-fuchsia-200 font-bold text-center">{`${
+        <Text className="text-xl text-fuchsia-200 font-bold text-center px-3">{`${
           currentQuestion.question !== undefined && currentQuestion.data !== ""
             ? base64.decode(currentQuestion.category)
             : ""
@@ -76,7 +76,7 @@ export const Question = ({
           >
             <MaterialCommunityIcons
               size={90}
-              color={currentQuestion.id === 0 ? "transparent" : "#d4d4d8"}
+              color={currentQuestion.id === 0 ? "transparent" : "#ffffff"}
               name="menu-left"
             />
           </TouchableOpacity>
