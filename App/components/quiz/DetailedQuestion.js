@@ -1,17 +1,16 @@
 import { Text, View } from "react-native"
 import Animated, { FadeIn } from "react-native-reanimated"
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
-
-import base64 from "react-native-base64"
+import { decode } from "../../util/Base64UTF8Decode"
 
 const getAnswerDetail = (question, answer) => {
   let result = ""
   if (question.correct_answer === answer.answer) {
-    result = `Correct! Your answer: ${base64.decode(answer.answer)}`
+    result = `Correct! Your answer: ${decode(answer.answer)}`
   } else {
-    result = `Incorrect, your answer: '${base64.decode(
+    result = `Incorrect, your answer: '${decode(
       answer.answer
-    )}' - correct answer : '${base64.decode(question.correct_answer)}'`
+    )}' - correct answer : '${decode(question.correct_answer)}'`
   }
   //Correct, and show answer
   return (
@@ -38,13 +37,13 @@ export const DetailedQuestion = ({ question, answer }) => {
   return (
     <Animated.View
       entering={FadeIn}
-      className="mx-5 my-2 p-4 rounded-md opacity-90 bg-purple-900"
+      className="mx-5 my-2 p-4 rounded-md bg-purple-900/70"
       key={answer.id}
     >
       <Text className="text-lg font-semibold text-white pb-1">{`Question ${
         answer.id + 1
       } `}</Text>
-      <Text className="text-xl font-semibold text-sky-300">{`${base64.decode(
+      <Text className="text-xl font-semibold text-sky-300">{`${decode(
         question.question
       )}?`}</Text>
       {getAnswerDetail(question, answer)}

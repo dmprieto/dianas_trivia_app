@@ -1,8 +1,8 @@
 import { useState } from "react"
 import { Text, TouchableOpacity, View } from "react-native"
-import base64 from "react-native-base64"
 import { SafeAreaView } from "react-native-safe-area-context"
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
+import { decode } from "../../util/Base64UTF8Decode"
 import mergeOptions from "../../util/MergeOptions"
 import { MultipleOptions } from "./MultipleOptions"
 
@@ -53,19 +53,23 @@ export const Question = ({
       currentQuestion.id === questions.length - 1 ? "#06b6d4" : "#ffffff"
     return (
       <SafeAreaView className="flex-1 pt-5">
-        <Text className="text-2xl text-fuchsia-200 font-bold text-center px-10 max-w-prose">{`${
-          currentQuestion.question !== undefined && currentQuestion.data !== ""
-            ? base64.decode(currentQuestion.category)
-            : ""
-        } Quiz`}</Text>
-        <Text className="text-2xl text-sky-300 text-center">{`Question ${
-          currentQuestion.id + 1
-        } Of ${questions.length}`}</Text>
-        <Text className="text-xl text-slate-50 font-bold text-center px-6 pt-5">{`${
-          currentQuestion.question !== undefined && currentQuestion.data !== ""
-            ? base64.decode(currentQuestion.question)
-            : ""
-        }?`}</Text>
+        <View className="px-2">
+          <Text className="text-2xl text-fuchsia-200 font-bold text-center px-10 max-w-prose">{`${
+            currentQuestion.question !== undefined &&
+            currentQuestion.data !== ""
+              ? decode(currentQuestion.category)
+              : ""
+          } Quiz`}</Text>
+          <Text className="text-2xl text-sky-300 text-center">{`Question ${
+            currentQuestion.id + 1
+          } Of ${questions.length}`}</Text>
+          <Text className="text-xl text-slate-50 font-bold text-center px-6 pt-5">{`${
+            currentQuestion.question !== undefined &&
+            currentQuestion.data !== ""
+              ? decode(currentQuestion.question)
+              : ""
+          }?`}</Text>
+        </View>
         <View className="flex-1 flex-row">
           <TouchableOpacity
             onPress={() => {

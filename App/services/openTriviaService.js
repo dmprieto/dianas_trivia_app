@@ -4,17 +4,17 @@ const encoding = "base64"
 
 const handleError = (error) => {
   if (error.response) {
-    console.log("data: " + error.response.data)
-    console.log("status: " + error.response.status)
-    console.log("headers: " + error.response.headers)
+    console.log("error data: " + error.response.data)
+    console.log("error status: " + error.response.status)
+    console.log("error headers: " + error.response.headers)
   } else if (error.request) {
     // The request was made but no response was received
-    console.log("no response: " + error.request)
+    console.log("error - no response: " + error.request)
   } else {
     // Something happened in setting up the request that triggered an Error
     console.log("Error: ", error.message)
   }
-  console.log(error.config)
+  console.log("Error config: " + error.config)
 }
 export const openTriviaAPI = axios.create({
   baseURL: "https://opentdb.com",
@@ -48,7 +48,7 @@ export const getQuestions = async (categoryId, numQuestions) => {
           console.log("no questions found")
           return []
         default:
-          console.log("error")
+          console.log("error open api error code:" + res.data.response_code)
           return []
       }
     }

@@ -1,5 +1,5 @@
 import { FlatList, Pressable, Text, View } from "react-native"
-import base64 from "react-native-base64"
+import { decode } from "../../util/Base64UTF8Decode"
 
 export const MultipleOptions = ({ options, answer, setAnswer }) => {
   const optionStyles = "bg-sky-500 py-2 px-4 rounded mt-4"
@@ -15,6 +15,7 @@ export const MultipleOptions = ({ options, answer, setAnswer }) => {
           } else {
             opacity += "opacity-70"
           }
+
           return (
             <Pressable
               className={`${optionStyles} ${opacity}`}
@@ -23,7 +24,7 @@ export const MultipleOptions = ({ options, answer, setAnswer }) => {
               }}
             >
               <Text className="text-xl text-white font-bold">
-                {base64.decode(item.name)}
+                {decode(item.name)}
               </Text>
             </Pressable>
           )
