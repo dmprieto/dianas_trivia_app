@@ -15,4 +15,5 @@ I'll be using expo to generate the main project
 ### Design
 
 - [Data Analysis](/docs/DESIGN.MD "Data Analysis")
-- [Data Flow Design](/docs/SEQUENCE.MD "Data Flow Design")
+- [Sequence Diagrams](/docs/SEQUENCE.MD "Sequence Diagrams")
+- [Quiz Flowchart]
