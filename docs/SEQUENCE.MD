@@ -1,5 +1,9 @@
-### Flows and Sequence Diagrams
+### Sequence Diagrams
 
 Get Categories Sequence
 
-![homeseq](/assets/home_flow.png "Categories Sequence")
+![categoriesseq](/assets/get_categories.png "Categories Sequence")
+
+Get Questions Sequence
+
+![qseq](/assets/get_questions.png "Questions Sequence")

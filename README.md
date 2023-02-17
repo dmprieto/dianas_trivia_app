@@ -1,6 +1,7 @@
 ## Diana's Trivia Mobile App :iphone:
 
 ### Purpose
+
 Create a mobile application using React Native to showcase my skills in React/React Native. I'll also explore using Tailwind for handling CSS.
 
 After exploring the repo https://github.com/public-apis/public-apis#games--comics , I selected **Open Trivia** https://opentdb.com/api_config.php as the datasource for the application.
@@ -8,8 +9,10 @@ After exploring the repo https://github.com/public-apis/public-apis#games--comic
 After analizing the available data, I'll start with the design of the application.
 
 ### Setup
+
 I'll be using expo to generate the main project
 
 ### Design
-* [Data Analysis](/docs/DESIGN.MD "Data Analysis")
-* [Flow Design](/docs/SEQUENCE.MD "Flow Design")
+
+- [Data Analysis](/docs/DESIGN.MD "Data Analysis")
+- [Data Flow Design](/docs/SEQUENCE.MD "Data Flow Design")
