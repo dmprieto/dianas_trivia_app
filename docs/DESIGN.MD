@@ -3,7 +3,6 @@
 After analyzing the following REST Endpoint from Open Trivia API
 
 - https://opentdb.com/api_category.php
-- https://opentdb.com/api_count.php?category=CATEGORY_ID_HERE
 - https://opentdb.com/api.php?amount=10&category=9
 
 I created the following diagram that shows the attributes and relationships of the data retrieved by the API
