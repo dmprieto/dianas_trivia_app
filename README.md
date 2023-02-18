@@ -32,3 +32,6 @@ The following functionalities are pending to be implemented:
 + Implement settings screen
   + Configure number of questions
   + Configure quiz difficulty: none, easy, medium, hard
+
+### Current App Gif (low resolution to facilitate embedding it to .MD file)
+![](/assets/dianas_trivia.gif)
