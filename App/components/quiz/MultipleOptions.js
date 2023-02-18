@@ -2,10 +2,10 @@ import { FlatList, Pressable, Text, View } from "react-native"
 import { decode } from "../../util/Base64UTF8Decode"
 
 export const MultipleOptions = ({ options, answer, setAnswer }) => {
-  const optionStyles = "bg-sky-500 py-2 px-4 rounded mt-4"
+  const optionStyles = "bg-sky-500 py-2 px-4 rounded mt-4 md:px-20"
 
   return (
-    <View className="shrink w-60">
+    <View className="w-3/4 items-center shrink">
       <FlatList
         data={options}
         renderItem={({ item }) => {

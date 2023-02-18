@@ -6,7 +6,7 @@ const bgImage = "../assets/background/init.jpg"
 
 const createAcknowledgments = () => {
   return (
-    <View className="flex-1 justify-center absolute inset-1 backdrop-blur bg-black/80 px-4">
+    <View className="flex-1 justify-center absolute inset-1 backdrop-blur bg-black/80 px-4 md:px-1 md:items-center">
       <Animated.Text
         entering={FadeIn}
         exiting={FadeOut}
@@ -42,27 +42,29 @@ const createAcknowledgments = () => {
 const createAbout = () => {
   return (
     <View className="flex-1 justify-center absolute inset-1 backdrop-blur bg-black/80">
-      <Text className="text-xl font-bold text-white px-5 max-w-prose">
-        👾 This application demonstrates my knowledge in
-      </Text>
-      <Text className="text-xl font-bold text-fuchsia-200 px-5">
-        React/React Hooks/Axios
-      </Text>
-      <Text className="text-xl font-bold text-white pt-5 px-4">
-        📚 It gave me the opportunity to learn on my own how to use
-      </Text>
-      <Text className="text-xl text-fuchsia-200 font-bold px-4">
-        React Native/Nativewind(Tailwind)/React Navigate/Reanimate/Lottie
-      </Text>
-      <Text className="text-xl font-bold text-white pt-5 px-4">
-        🔎 Data is retrieved from
-      </Text>
-      <Text className="text-xl text-fuchsia-200 font-bold px-4">
-        Open Trivia (opentdb.com)
-      </Text>
-      <Text className="text-xl font-bold text-white pt-5 px-4">
-        💜 All the resources and libraries are Open Source
-      </Text>
+      <View className="p-4 md:p-5 md:items-center">
+        <Text className="text-xl font-bold text-white px-5 max-w-prose">
+          👾 This application demonstrates my knowledge in
+        </Text>
+        <Text className="text-xl font-bold text-fuchsia-200 px-5">
+          React/React Hooks/Axios
+        </Text>
+        <Text className="text-xl font-bold text-white pt-5 px-4">
+          📚 It gave me the opportunity to learn on my own how to use
+        </Text>
+        <Text className="text-xl text-fuchsia-200 font-bold px-4">
+          React Native/Nativewind(Tailwind)/React Navigate/Reanimate/Lottie
+        </Text>
+        <Text className="text-xl font-bold text-white pt-5 px-4">
+          🔎 Data is retrieved from
+        </Text>
+        <Text className="text-xl text-fuchsia-200 font-bold px-4">
+          Open Trivia (opentdb.com)
+        </Text>
+        <Text className="text-xl font-bold text-white pt-5 px-4">
+          💜 All the resources and libraries are Open Source
+        </Text>
+      </View>
     </View>
   )
 }
