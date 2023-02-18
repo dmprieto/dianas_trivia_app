@@ -8,7 +8,7 @@ After exploring the repo https://github.com/public-apis/public-apis#games--comic
 
 ### Main Functionality
 
-This mobile application shows the different categories provided by the Open Trivia API. Once the user selects a category to generate a quiz, the app retrieves some random questions from that category. The user is then shown a quiz with these questions, and once all the questions have been answered, the app calculates the final score and displays a detailed summary of each question/answer.
+This mobile application shows the different categories provided by the Open Trivia API. Once the user selects a category to generate a quiz, the app retrieves some random questions from that category. A quiz is then generated with these questions, and after all the questions are answered, the app calculates the final score and displays detailed information of each question/answer.
 
 ### Setup
 
