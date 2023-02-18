@@ -6,7 +6,9 @@ Create a mobile application using React Native to showcase my skills in React/Re
 
 After exploring the repo https://github.com/public-apis/public-apis#games--comics , I selected **Open Trivia** https://opentdb.com/api_config.php as the datasource for the application.
 
-After analizing the available data, I'll start with the design of the application.
+### App Description
+
+This mobile application shows the different categories provided by the Open Trivia API. Once the user selects a category to generate a quiz, the app retrieves some random questions from that category. The user is then shown a quiz with these questions, and once all the questions have been answered, the app calculates the final score and displays a detailed summary of each question/answer.
 
 ### Setup
 
