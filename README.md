@@ -27,7 +27,7 @@ Once node, expo cli and yarn are configured, the project can be started and test
 
 ### Testing
 
-Jest to create snapshots of the components, do unit tests of the components and unit tests for some functions
+Used Jest to create snapshots of the components, do unit tests of the components and unit tests for some functions
 
 ### TODO
 The following functionalities are pending to be implemented:
