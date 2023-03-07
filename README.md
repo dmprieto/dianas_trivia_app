@@ -33,7 +33,7 @@ Used Jest to create snapshots of the components, do unit tests of the components
 The following functionalities are pending to be implemented:
 + Implement settings screen
   + Configure number of questions
-  + Configure quiz difficulty: none, easy, medium, hard
+  + Configure quiz difficulty: all, easy, medium, hard
 
 ### Current App Gif (low resolution to facilitate embedding it to .MD file)
 ![](/assets/dianas_trivia.gif)
