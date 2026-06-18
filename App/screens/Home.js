@@ -3,14 +3,16 @@ import { useRef } from "react"
 import { ImageBackground, View } from "react-native"
 import { AppButton } from "../components/AppButton"
 import WelcomeTrivia from "../components/WelcomeTrivia"
+import { useTheme } from "../context/ThemeContext"
 
 const bgImage = "../assets/background/init.jpg"
 
 export default ({ navigation }) => {
   const animation = useRef(null)
+  const { theme } = useTheme()
   return (
     <ImageBackground className="flex-1" source={require(bgImage)}>
-      <View className="items-center justify-center absolute inset-5 backdrop-blur bg-black/30">
+      <View className={`flex-1 items-center justify-center ${theme.overlayHome}`}>
         <LottieView
           autoPlay
           ref={animation}
@@ -19,7 +21,6 @@ export default ({ navigation }) => {
             height: 150,
             backgroundColor: "transparent"
           }}
-          // Find more Lottie files at https://lottiefiles.com/featured
           source={require("../assets/game-start.json")}
         />
         <WelcomeTrivia />

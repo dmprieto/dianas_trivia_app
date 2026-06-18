@@ -1,9 +1,10 @@
 import { Text, View } from "react-native"
 import Animated, { FadeIn } from "react-native-reanimated"
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
+import { MaterialCommunityIcons } from "@expo/vector-icons"
 import { decode } from "../../util/Base64UTF8Decode"
+import { useTheme } from "../../context/ThemeContext"
 
-const getAnswerDetail = (question, answer) => {
+const getAnswerDetail = (question, answer, theme) => {
   let result = ""
   if (question.correct_answer === answer.answer) {
     result = `Correct! Your answer: ${decode(answer.answer)}`
@@ -12,7 +13,6 @@ const getAnswerDetail = (question, answer) => {
       answer.answer
     )}' - correct answer : '${decode(question.correct_answer)}'`
   }
-  //Correct, and show answer
   return (
     <View className="flex flex-row pt-2">
       <MaterialCommunityIcons
@@ -26,7 +26,7 @@ const getAnswerDetail = (question, answer) => {
             : "close-thick"
         }
       />
-      <Text className="text-xl font-bold text-white flex-shrink w-50 pl-1">
+      <Text className={`text-xl font-bold ${theme.bodyText} flex-shrink w-50 pl-1`}>
         {result}
       </Text>
     </View>
@@ -34,19 +34,20 @@ const getAnswerDetail = (question, answer) => {
 }
 
 export const DetailedQuestion = ({ question, answer }) => {
+  const { theme } = useTheme()
   return (
     <Animated.View
       entering={FadeIn}
-      className="mx-5 my-2 p-4 rounded-md bg-purple-900/70"
+      className={`mx-5 my-2 p-4 rounded-md ${theme.cardBgTransparent}`}
       key={answer.id}
     >
-      <Text className="text-lg font-semibold text-white pb-1">{`Question ${
+      <Text className={`text-lg font-semibold ${theme.bodyText} pb-1`}>{`Question ${
         answer.id + 1
       } `}</Text>
-      <Text className="text-xl font-semibold text-sky-300">{`${decode(
+      <Text className={`text-xl font-semibold ${theme.questionText}`}>{`${decode(
         question.question
       )}?`}</Text>
-      {getAnswerDetail(question, answer)}
+      {getAnswerDetail(question, answer, theme)}
     </Animated.View>
   )
 }

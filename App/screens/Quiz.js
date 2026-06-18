@@ -6,11 +6,12 @@ import {
   TouchableOpacity,
   View
 } from "react-native"
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
+import { MaterialCommunityIcons } from "@expo/vector-icons"
 import { EndQuiz } from "../components/quiz/EndQuiz"
 import { Question } from "../components/quiz/Question"
 import { StartQuiz } from "../components/quiz/StartQuiz"
 import { getQuestions } from "../services/openTriviaService"
+import { useTheme } from "../context/ThemeContext"
 
 const bgImage = "../assets/background/init.jpg"
 
@@ -23,6 +24,7 @@ export default ({ navigation, route = {} }) => {
   const params = route.params || {}
   const { categoryId, categoryName } = params
   const numQuestions = 10
+  const { theme } = useTheme()
 
   useEffect(() => {
     async function fetchData() {
@@ -37,8 +39,8 @@ export default ({ navigation, route = {} }) => {
   if (isLoading) {
     return (
       <ImageBackground className="flex-1" source={require(bgImage)}>
-        <View className="flex-1 items-center justify-center absolute inset-1 backdrop-blur bg-black/80">
-          <Text className="text-3xl text-white m-10 text-center">{`Loading Questions ...`}</Text>
+        <View className={`flex-1 items-center justify-center flex-1 ${theme.overlay}`}>
+          <Text className={`text-3xl ${theme.bodyText} m-10 text-center`}>{`Loading Questions ...`}</Text>
           <ActivityIndicator size="large" color="ffffff" />
         </View>
       </ImageBackground>
@@ -48,14 +50,14 @@ export default ({ navigation, route = {} }) => {
   if (questions.length === 0) {
     return (
       <ImageBackground className="flex-1" source={require(bgImage)}>
-        <View className="flex-1 items-center justify-center absolute inset-1 backdrop-blur bg-black/80">
-          <Text className="text-3xl font-bold  text-white m-10">{`Could not retrieve the questions, please check that your internet connection is working and that opentdb.com is available`}</Text>
+        <View className={`flex-1 items-center justify-center flex-1 ${theme.overlay}`}>
+          <Text className={`text-3xl font-bold ${theme.bodyText} m-10`}>{`Could not retrieve the questions, please check that your internet connection is working and that opentdb.com is available`}</Text>
 
           <TouchableOpacity onPress={() => navigation.pop()} className="mt-10">
             <MaterialCommunityIcons
               name="close-circle"
               size={70}
-              color="#d4d4d8"
+              color={theme.closeIcon}
             />
           </TouchableOpacity>
         </View>
@@ -65,7 +67,7 @@ export default ({ navigation, route = {} }) => {
 
   return (
     <ImageBackground className="flex-1" source={require(bgImage)}>
-      <View className="flex-1 items-center absolute inset-1 backdrop-blur bg-black/80">
+      <View className={`flex-1 items-center ${theme.overlay}`}>
         <StartQuiz
           questions={questions}
           category={categoryName}
@@ -92,7 +94,7 @@ export default ({ navigation, route = {} }) => {
           <MaterialCommunityIcons
             name="close-circle"
             size={70}
-            color="#d4d4d8"
+            color={theme.closeIcon}
           />
         </TouchableOpacity>
       </View>

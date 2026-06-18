@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react"
 import { FlatList, Text } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
 import { DetailedQuestion } from "./DetailedQuestion"
+import { useTheme } from "../../context/ThemeContext"
 
 const calculateScore = (questions, answers) => {
   let tempScore = 0
@@ -17,53 +18,54 @@ const calculateScore = (questions, answers) => {
 }
 
 export const EndQuiz = ({ questions, category, quizStatus, answers }) => {
-  if (quizStatus && quizStatus === "ended") {
-    const [showResults, setShowResults] = useState(false)
-    const [score, setScore] = useState(0)
-    const animation = useRef(null)
+  const { theme } = useTheme()
+  const [showResults, setShowResults] = useState(false)
+  const [score, setScore] = useState(0)
+  const animation = useRef(null)
 
-    useEffect(() => {
-      setScore(calculateScore(questions, answers))
-      const timer = setTimeout(() => {
-        setShowResults(true)
-      }, 4000)
-      return () => clearTimeout(timer)
-    }, [])
+  useEffect(() => {
+    if (quizStatus !== "ended") return
+    setScore(calculateScore(questions, answers))
+    const timer = setTimeout(() => {
+      setShowResults(true)
+    }, 4000)
+    return () => clearTimeout(timer)
+  }, [quizStatus])
 
-    if (!showResults) {
-      return (
-        <SafeAreaView className="flex-1 items-center justify-center">
-          <LottieView
-            autoPlay
-            loop={false}
-            ref={animation}
-            style={{
-              width: 200,
-              height: 200,
-              backgroundColor: "transparent"
-            }}
-            source={require("../../assets/game-complete.json")}
-          />
-          <Text className="text-lg text-fuchsia-200 font-bold text-center tracking-wide pt-10">{`Calculating Results ...`}</Text>
-        </SafeAreaView>
-      )
-    }
+  if (quizStatus !== "ended") return null
+
+  if (!showResults) {
     return (
       <SafeAreaView className="flex-1 items-center justify-center">
-        <Text className="text-2xl text-fuchsia-200 font-semibold text-center pt-10">{`${category} Quiz Results`}</Text>
-        <Text className="text-3xl text-white font-bold text-center pb-5">{`Score: ${score}/10`}</Text>
-
-        <FlatList
-          className="w-screen"
-          data={answers}
-          renderItem={({ item }) => {
-            const question = questions[item.id]
-            return <DetailedQuestion question={question} answer={item} />
+        <LottieView
+          autoPlay
+          loop={false}
+          ref={animation}
+          style={{
+            width: 200,
+            height: 200,
+            backgroundColor: "transparent"
           }}
-          keyExtractor={(item) => item.id}
+          source={require("../../assets/game-complete.json")}
         />
+        <Text className={`text-lg ${theme.titleText} font-bold text-center tracking-wide pt-10`}>{`Calculating Results ...`}</Text>
       </SafeAreaView>
     )
   }
-  return null
+  return (
+    <SafeAreaView className="flex-1 items-center justify-center">
+      <Text className={`text-2xl ${theme.titleText} font-semibold text-center pt-10`}>{`${category} Quiz Results`}</Text>
+      <Text className={`text-3xl ${theme.bodyText} font-bold text-center pb-5`}>{`Score: ${score}/10`}</Text>
+
+      <FlatList
+        className="w-screen"
+        data={answers}
+        renderItem={({ item }) => {
+          const question = questions[item.id]
+          return <DetailedQuestion question={question} answer={item} />
+        }}
+        keyExtractor={(item) => item.id}
+      />
+    </SafeAreaView>
+  )
 }

@@ -16,7 +16,7 @@ Expo was used to generate the base project. After creating the project, main lib
  guide. 
  
 Once node, expo cli and yarn are configured, the project can be started and tested using: **yarn start** and **yarn test**
-
+ * Can use android emulator instead of testing on an actual device, need to follow these instructions https://docs.expo.dev/get-started/set-up-your-environment/?platform=android&device=simulated
 
 ### Design
 

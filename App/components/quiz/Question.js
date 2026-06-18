@@ -1,10 +1,11 @@
 import { useState } from "react"
 import { Text, TouchableOpacity, View } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
+import { MaterialCommunityIcons } from "@expo/vector-icons"
 import { decode } from "../../util/Base64UTF8Decode"
 import mergeOptions from "../../util/MergeOptions"
 import { MultipleOptions } from "./MultipleOptions"
+import { useTheme } from "../../context/ThemeContext"
 
 const setNextStep = (
   currentQuestion,
@@ -30,6 +31,8 @@ export const Question = ({
   setAnswers
 }) => {
   const [answer, setAnswer] = useState("")
+  const { theme } = useTheme()
+
   function evalNextAnswer() {
     const nextAnswer = answers.find((answer) => {
       return answer.id === currentQuestion.id + 1
@@ -50,18 +53,18 @@ export const Question = ({
   }
   if (quizStatus && quizStatus === "started") {
     const color =
-      currentQuestion.id === questions.length - 1 ? "#06b6d4" : "#ffffff"
+      currentQuestion.id === questions.length - 1 ? theme.navArrowLast : theme.navArrow
     return (
       <SafeAreaView className="flex-1 justify-center pt-5 w-screen">
-        <Text className="text-2xl text-fuchsia-200 font-bold text-center">{`${
+        <Text className={`text-2xl ${theme.titleText} font-bold text-center`}>{`${
           currentQuestion.question !== undefined && currentQuestion.data !== ""
             ? decode(currentQuestion.category)
             : ""
         } Quiz`}</Text>
-        <Text className="text-2xl text-sky-300 text-center">{`Question ${
+        <Text className={`text-2xl ${theme.questionText} text-center`}>{`Question ${
           currentQuestion.id + 1
         } Of ${questions.length}`}</Text>
-        <Text className="text-xl text-slate-50 font-bold text-center px-6 pt-5 pb-3">{`${
+        <Text className={`text-xl ${theme.bodyText} font-bold text-center px-6 pt-5 pb-3`}>{`${
           currentQuestion.question !== undefined && currentQuestion.data !== ""
             ? decode(currentQuestion.question)
             : ""
@@ -76,7 +79,7 @@ export const Question = ({
           >
             <MaterialCommunityIcons
               size={90}
-              color={currentQuestion.id === 0 ? "transparent" : "#ffffff"}
+              color={currentQuestion.id === 0 ? "transparent" : theme.navArrow}
               name="menu-left"
             />
           </TouchableOpacity>
